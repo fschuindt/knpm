@@ -35,4 +35,7 @@ COPY --chown=htdocs:htdocs ./htdocs/. /htdocs/.
 
 EXPOSE 4080
 
-CMD php-fpm7 && nginx && tail -f /var/log/nginx/access.log
+CMD php-fpm7 && \
+    nginx && \
+    echo "Running..." && \
+    tail -f /var/log/nginx/access.log

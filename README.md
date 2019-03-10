@@ -9,3 +9,24 @@ It also uses `America/Sao_Paulo` as the system and PHP default timezone, you may
 ## Usage
 
 Just place your application files inside `/htdocs` and you should be good.
+
+Check the `example` folder in this repository.
+
+It should look something like this:
+```Dockerfile
+FROM zfschuindt/knpm:latest
+
+# Clear build files...
+RUN rm /htdocs/*
+
+COPY ./my_site /htdocs
+
+CMD php-fpm7 && \
+    nginx && \
+    echo "Running..." && \
+    tail -f /var/log/nginx/access.log
+```
+
+Find the image registry [here](https://cloud.docker.com/repository/docker/zfschuindt/knpm).  
+Git repository [here](https://github.com/fschuindt/knpm).
+
