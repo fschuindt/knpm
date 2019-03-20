@@ -22,7 +22,7 @@ RUN addgroup -g ${PGID} htdocs && \
 
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache tzdata nginx
+    apk add --no-cache tzdata nginx bash
 
 RUN cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && \
     echo "America/Sao_Paulo" > /etc/timezone
@@ -35,6 +35,7 @@ RUN apk add php7-fpm php7-mcrypt php7-soap php7-openssl php7-gmp \
         php7-bz2 php7-iconv php7-pdo_dblib php7-curl php7-ctype
 
 RUN chown -R htdocs:htdocs /var/lib/nginx
+RUN chown -R htdocs:htdocs /var/tmp/nginx
 
 COPY ./configure_php.sh /.
 
