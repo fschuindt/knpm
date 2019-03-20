@@ -10,7 +10,7 @@ It also uses `America/Sao_Paulo` as the system and PHP default timezone, you may
 
 Just place your application files inside `/htdocs` and you should be good.
 
-Also, the default `nginx.conf` is designed to work with CodeIgniter applications. If you want to change it, just overwrite the `/etc/nginx/nginx.conf` file. Like so:
+Also, check the default `nginx.conf` (at this repository root). If you want to change it, just overwrite the `/etc/nginx/nginx.conf` file. Like so:
 
 ```Dockerfile
 COPY ./my_ngingx.conf /etc/nginx/nginx.conf
