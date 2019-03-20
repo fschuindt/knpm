@@ -4,6 +4,19 @@ ARG PUID=1000
 ARG PGID=1000
 ARG HOME="/htdocs"
 
+ENV TIMEZONE="America/Sao_Paulo"
+ENV PHP_FPM_USER="htdocs"
+ENV PHP_FPM_GROUP="htdocs"
+ENV PHP_FPM_LISTEN_MODE="0660"
+ENV PHP_MEMORY_LIMIT="512M"
+ENV PHP_MAX_UPLOAD="50M"
+ENV PHP_MAX_FILE_UPLOAD="200"
+ENV PHP_MAX_POST="100M"
+ENV PHP_DISPLAY_ERRORS="On"
+ENV PHP_DISPLAY_STARTUP_ERRORS="On"
+ENV PHP_ERROR_REPORTING="E_COMPILE_ERROR\|E_RECOVERABLE_ERROR\|E_ERROR\|E_CORE_ERROR"
+ENV PHP_CGI_FIX_PATHINFO="0"
+
 RUN addgroup -g ${PGID} htdocs && \
     adduser -S -h ${HOME} -G htdocs -u ${PUID} htdocs
 
@@ -26,8 +39,7 @@ RUN chown -R htdocs:htdocs /var/lib/nginx
 COPY ./configure_php.sh /.
 
 RUN chmod +x ./configure_php.sh && \
-    ./configure_php.sh && \
-    rm ./configure_php.sh
+    ./configure_php.sh
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
