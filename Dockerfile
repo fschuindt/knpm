@@ -22,7 +22,7 @@ RUN addgroup -g ${PGID} htdocs && \
 
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache tzdata nginx bash
+    apk add --no-cache tzdata nginx bash msmtp
 
 RUN cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && \
     echo "America/Sao_Paulo" > /etc/timezone
