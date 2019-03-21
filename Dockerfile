@@ -44,11 +44,18 @@ RUN chmod +x ./configure_php.sh && \
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
+COPY msmtp-sendmail.start /etc/local.d/msmtp-sendmail.start
+
+RUN chmod +x /etc/local.d/msmtp-sendmail.start
+
+COPY msmtprc /etc/msmtprc
+
 COPY --chown=htdocs:htdocs ./htdocs/. /htdocs/.
 
 EXPOSE 4080
 
 CMD php-fpm7 && \
     nginx && \
+    /etc/local.d/msmtp-sendmail.start && \
     echo "Running..." && \
     tail -f /var/log/nginx/access.log
