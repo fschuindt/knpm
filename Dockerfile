@@ -44,6 +44,8 @@ RUN chmod +x ./configure_php.sh && \
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
+COPY www.conf /etc/php7/php-fpm.d/www.conf
+
 RUN mkdir /var/log/msmtp
 
 COPY msmtp-sendmail.start /etc/local.d/msmtp-sendmail.start
