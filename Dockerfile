@@ -35,7 +35,8 @@ RUN apk add php7-fpm php7-mcrypt php7-soap php7-openssl php7-gmp \
         php7-bcmath php7-gd php7-odbc php7-pdo_mysql php7-session \
         php7-pdo_sqlite php7-gettext php7-xmlreader php7-xmlrpc \
         php7-bz2 php7-iconv php7-pdo_dblib php7-curl php7-ctype \
-        php7-phar
+        php7-phar php7-tokenizer php7-xmlwriter php7-simplexml \
+        php7-mbstring php7-fileinfo
 
 RUN chown -R htdocs:htdocs /var/lib/nginx
 RUN chown -R htdocs:htdocs /var/tmp/nginx
