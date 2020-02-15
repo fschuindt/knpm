@@ -14,8 +14,8 @@ ENV PHP_MAX_FILE_UPLOAD="20"
 ENV PHP_MAX_POST="512M"
 ENV PHP_MAX_EXECUTION_TIME="240"
 ENV PHP_MAX_INPUT_TIME="240"
-ENV PHP_DISPLAY_ERRORS="On"
-ENV PHP_DISPLAY_STARTUP_ERRORS="On"
+ENV PHP_DISPLAY_ERRORS="Off"
+ENV PHP_DISPLAY_STARTUP_ERRORS="Off"
 ENV PHP_ERROR_REPORTING="E_COMPILE_ERROR\|E_RECOVERABLE_ERROR\|E_ERROR\|E_CORE_ERROR"
 ENV PHP_CGI_FIX_PATHINFO="0"
 
@@ -60,7 +60,7 @@ COPY msmtp-sendmail.start /etc/local.d/msmtp-sendmail.start
 
 RUN chmod +x /etc/local.d/msmtp-sendmail.start
 
-COPY --chown=htdocs:htdocs ./htdocs/. /htdocs/.
+# COPY --chown=htdocs:htdocs ./htdocs/. /htdocs/.
 
 EXPOSE 4080
 
