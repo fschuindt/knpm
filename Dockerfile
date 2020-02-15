@@ -60,7 +60,7 @@ COPY msmtp-sendmail.start /etc/local.d/msmtp-sendmail.start
 
 RUN chmod +x /etc/local.d/msmtp-sendmail.start
 
-# COPY --chown=htdocs:htdocs ./htdocs/. /htdocs/.
+COPY --chown=htdocs:htdocs ./htdocs/. /htdocs/.
 
 EXPOSE 4080
 
